@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.text.ParseException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,6 +57,15 @@ public class AdicionaContatoServlet extends HttpServlet{
 		out.println("Contato " + contato.getNome() + " adicionando com sucesso");
 		out.println("</body>");
 		out.println("</html>");
-		
+	}
+	
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		log("Iniciando a servlet");
+	}
+	
+	public void destroy() {
+		super.destroy();
+		log("Destruindo a servlet");
 	}
 }
