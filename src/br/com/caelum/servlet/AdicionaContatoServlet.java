@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Contato;
+import br.com.caelum.dao.ContatoDao;
+import br.com.caelum.modelo.Contato;
 
 @WebServlet("/adicionaContato")
 public class AdicionaContatoServlet extends HttpServlet{
@@ -44,6 +45,10 @@ public class AdicionaContatoServlet extends HttpServlet{
 		contato.setEndereco(endereco);
 		contato.setEmail(email);
 		contato.setDataNascimento(dataNascimento);
+		
+		// Salva o contato
+		ContatoDao dao = new ContatoDao();
+		dao.adiciona(contato);
 		
 		// imprime o nome do contato que foi adicionado
 		out.println("<html>");
