@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.text.ParseException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,12 +52,8 @@ public class AdicionaContatoServlet extends HttpServlet{
 		ContatoDao dao = new ContatoDao();
 		dao.adiciona(contato);
 		
-		// imprime o nome do contato que foi adicionado
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Contato " + contato.getNome() + " adicionando com sucesso");
-		out.println("</body>");
-		out.println("</html>");
+		RequestDispatcher rd = request.getRequestDispatcher("/contato-adicionado.jsp");
+		rd.forward(request, response);
 	}
 	
 	public void init(ServletConfig config) throws ServletException {
