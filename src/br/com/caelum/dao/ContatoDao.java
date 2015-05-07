@@ -71,4 +71,19 @@ public class ContatoDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public void exclui(Contato contato) {
+		String sql = "delete from contatos where id = ?";
+		
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			stmt.setLong(1, contato.getId());
+			
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
