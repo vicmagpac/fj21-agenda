@@ -10,8 +10,8 @@
 	<script type="text/javascript" src="js/jquery-ui/js/jquery-ui-1.9.2.custom.min.js"></script>
 </head>
 <body>
-	<c:import url="cabecalho.jsp" />
-	<form action="adicionaContato" method="post">
+	<c:import url="/cabecalho.jsp" />
+	<form action="mvc?logica=AdicionaContatoLogic" method="post">
 		Nome: <input type="text" name="nome" /><br>
 		Email: <input type="text" name="email" /><br>
 		Endereço: <input type="text" name="endereco" /><br>
@@ -20,6 +20,6 @@
 		<input type="submit" value="Gravar" />
 	</form>
 	
-	<c:import url="rodape.jsp" />
+	<c:import url="/rodape.jsp" />
 </body>
 </html>
