@@ -12,6 +12,7 @@
 
 	<c:import url="/cabecalho.jsp" />
 
+	<a href="mvc?logica=CadastroContatosLogic">Cadastrar novo +</a><br><br>
 	<table>
 		<!-- percorre contatos montando as linhas da tabela -->
 		<c:forEach var="contato" items="${contatos}">
@@ -32,7 +33,8 @@
 					<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
 				</td>
 				<td>
-					<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
+					<a href="mvc?logica=EditarContatoLogic&id=${contato.id}">Editar</a>
+					| <a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
 				</td>
 			</tr>
 		</c:forEach>
